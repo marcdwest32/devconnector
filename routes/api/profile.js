@@ -9,7 +9,7 @@ const User = require('../../models/User')
 
 // @route GET api/profile/me
 // @desc Get current user's profile
-// @ access Private
+// @access Private
 router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
@@ -29,7 +29,7 @@ router.get('/me', auth, async (req, res) => {
 
 // @route POST api/profile
 // @desc Create or update a user's profile
-// @ access Private
+// @access Private
 router.post(
   '/',
   [

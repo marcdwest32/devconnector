@@ -135,7 +135,8 @@ router.get('/user/:user_id', async (req, res) => {
   } catch (err) {
     console.error(err.message)
 
-    if (err.name == 'CastError') {
+    if (err.kind == 'ObjectId') {
+      // if (err.name == 'CastError') {
       return res.status(400).json({ msg: 'Profile not found' })
     }
 

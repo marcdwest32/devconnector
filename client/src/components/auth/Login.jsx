@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -20,7 +20,7 @@ export const Login = () => {
   }
 
   return (
-    <Fragment>
+    <div className='container'>
       <h1 className='large text-primary'>Sign In</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Sign Into Your Account
@@ -52,7 +52,7 @@ export const Login = () => {
       <p className='my-1'>
         Don't have an account? <Link to='/register'>Sign Up</Link>
       </p>
-    </Fragment>
+    </div>
   )
 }
 

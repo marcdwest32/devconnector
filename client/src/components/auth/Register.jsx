@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link, redirect } from 'react-router-dom'
 import { setAlert } from '../../actions/alert'
 import { register } from '../../actions/auth'
 import PropTypes from 'prop-types'
 
-export const Register = () => {
+export const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,14 +20,14 @@ export const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault()
     if (password !== password2) {
-      console.log('password does not match')
+      setAlert('password does not match', 'danger')
     } else {
-      console.log('SUCCESS')
-      //   const newUser = {
-      //     name,
-      //     email,
-      //     password,
-      //   }
+      const newUser = {
+        name,
+        email,
+        password,
+      }
+      register(newUser)
       //   try {
       //     const config = { headers: { 'Content-Type': 'application/json' } }
       //     const body = JSON.stringify(newUser)
@@ -40,7 +40,7 @@ export const Register = () => {
   }
 
   return (
-    <Fragment>
+    <div className='container'>
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
@@ -97,8 +97,13 @@ export const Register = () => {
       <p className='my-1'>
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
-    </Fragment>
+    </div>
   )
 }
 
-export default Register
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+}
+
+export default connect(null, { setAlert, register })(Register)

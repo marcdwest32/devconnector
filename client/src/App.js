@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './components/dashboard/Dashboard'
+import CreateProfile from './components/profile-forms/CreateProfile'
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 import Alert from './components/layout/Alert'
@@ -35,6 +36,10 @@ const App = () => {
           <Route
             path='dashboard'
             element={<PrivateRoute component={Dashboard} />}
+          />
+          <Route
+            path='create-profile'
+            element={<PrivateRoute component={CreateProfile} />}
           />
         </Routes>
       </Router>

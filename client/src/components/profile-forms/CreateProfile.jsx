@@ -1,8 +1,11 @@
-import React, { Fragment, useState } from 'react'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { createProfile } from '../../actions/profile'
+import { Link, useNavigate } from 'react-router-dom'
 
-const CreateProfile = (props) => {
+const CreateProfile = ({ createProfile }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     company: '',
     website: '',
@@ -38,17 +41,22 @@ const CreateProfile = (props) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value })
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    createProfile(formData, navigate)
+  }
+
   return (
-    <Fragment>
+    <div className='container'>
       <h1 className='large text-primary'>Create Your Profile</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Let's get some information to make your
         profile stand out
       </p>
       <small>* = required field</small>
-      <form className='form'>
+      <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
-          <select name='status' value={status} onChange={() => onChange(e)}>
+          <select name='status' value={status} onChange={(e) => onChange(e)}>
             <option value='0'>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
@@ -69,7 +77,7 @@ const CreateProfile = (props) => {
             placeholder='Company'
             name='company'
             value={company}
-            onChange={() => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             Could be your own company or one you work for
@@ -81,7 +89,7 @@ const CreateProfile = (props) => {
             placeholder='Website'
             name='website'
             value={website}
-            onChange={() => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             Could be your own or a company website
@@ -93,7 +101,7 @@ const CreateProfile = (props) => {
             placeholder='Location'
             name='location'
             value={location}
-            onChange={() => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             City & state suggested (eg. Boston, MA)
@@ -105,7 +113,7 @@ const CreateProfile = (props) => {
             placeholder='* Skills'
             name='skills'
             value={skills}
-            onChange={() => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
@@ -117,7 +125,7 @@ const CreateProfile = (props) => {
             placeholder='Github Username'
             name='githubusername'
             value={githubusername}
-            onChange={() => onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <small className='form-text'>
             If you want your latest repos and a Github link, include your
@@ -129,7 +137,7 @@ const CreateProfile = (props) => {
             placeholder='A short bio of yourself'
             name='bio'
             value={bio}
-            onChange={() => onChange(e)}
+            onChange={(e) => onChange(e)}
           ></textarea>
           <small className='form-text'>Tell us a little about yourself</small>
         </div>
@@ -138,14 +146,14 @@ const CreateProfile = (props) => {
           <button
             type='button'
             className='btn btn-light'
-            onClick={() => toggleSocialInputs(!displaySocialInputs)}
+            onClick={(e) => toggleSocialInputs(!displaySocialInputs)}
           >
             Add Social Network Links
           </button>
           <span>Optional</span>
         </div>
         {displaySocialInputs && (
-          <Fragment>
+          <div className='container'>
             <div className='form-group social-input'>
               <i className='fab fa-twitter fa-2x'></i>
               <input
@@ -153,7 +161,7 @@ const CreateProfile = (props) => {
                 placeholder='Twitter URL'
                 name='twitter'
                 value={twitter}
-                onChange={() => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
 
@@ -164,7 +172,7 @@ const CreateProfile = (props) => {
                 placeholder='Facebook URL'
                 name='facebook'
                 value={facebook}
-                onChange={() => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
 
@@ -175,7 +183,7 @@ const CreateProfile = (props) => {
                 placeholder='YouTube URL'
                 name='youtube'
                 value={youtube}
-                onChange={() => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
 
@@ -186,7 +194,7 @@ const CreateProfile = (props) => {
                 placeholder='Linkedin URL'
                 name='linkedin'
                 value={linkedin}
-                onChange={() => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
 
@@ -197,10 +205,10 @@ const CreateProfile = (props) => {
                 placeholder='Instagram URL'
                 name='instagram'
                 value={instagram}
-                onChange={() => onChange(e)}
+                onChange={(e) => onChange(e)}
               />
             </div>
-          </Fragment>
+          </div>
         )}
 
         <input type='submit' className='btn btn-primary my-1' />
@@ -208,10 +216,12 @@ const CreateProfile = (props) => {
           Go Back
         </a>
       </form>
-    </Fragment>
+    </div>
   )
 }
 
-CreateProfile.propTypes = {}
+CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+}
 
-export default CreateProfile
+export default connect(null, { createProfile })(CreateProfile)

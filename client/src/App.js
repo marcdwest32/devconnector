@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './components/dashboard/Dashboard'
 import CreateProfile from './components/profile-forms/CreateProfile'
+import EditProfile from './components/profile-forms/EditProfile'
+import AddEducation from './components/profile-forms/AddEducation'
+import AddExperience from './components/profile-forms/AddExperience'
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 import Alert from './components/layout/Alert'
@@ -40,6 +43,18 @@ const App = () => {
           <Route
             path='create-profile'
             element={<PrivateRoute component={CreateProfile} />}
+          />
+          <Route
+            path='edit-profile'
+            element={<PrivateRoute component={EditProfile} />}
+          />
+          <Route
+            path='add-education'
+            element={<PrivateRoute component={AddEducation} />}
+          />
+          <Route
+            path='add-experience'
+            element={<PrivateRoute component={AddExperience} />}
           />
         </Routes>
       </Router>

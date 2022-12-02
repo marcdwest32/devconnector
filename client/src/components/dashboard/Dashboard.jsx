@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Spinner from '../layout/Spinner'
 import DashboardActions from './DashboardActions'
+import Experience from './Experience'
+import Education from './Education'
 import { getCurrentProfile } from '../../actions/profile'
 
 // const Dashboard = ({
@@ -33,6 +35,8 @@ const Dashboard = (state) => {
       {profile !== null ? (
         <div className='constainer'>
           <DashboardActions />
+          <Experience experience={profile.experience} />
+          <Education education={profile.education} />
         </div>
       ) : (
         <div>

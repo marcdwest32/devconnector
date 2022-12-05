@@ -14,7 +14,6 @@ import { deleteAccount, getCurrentProfile } from '../../actions/profile'
 //   profile: { profile, loading },
 // }) => {
 const Dashboard = (state) => {
-  console.log(state)
   const {
     getCurrentProfile,
     auth: { user },

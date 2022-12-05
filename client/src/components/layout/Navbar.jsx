@@ -19,6 +19,9 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <span className='hide-sm'>Logout</span>
         </a>
       </li>
+      <li>
+        <Link to='/profiles'>Developers</Link>
+      </li>
     </ul>
   )
   const guestLinks = (
@@ -31,6 +34,9 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li>
         <Link to='/login'>Login</Link>
+      </li>
+      <li>
+        <Link to='/profiles'>Developers</Link>
       </li>
     </ul>
   )

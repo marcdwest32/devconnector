@@ -10,6 +10,7 @@ import Landing from './components/layout/Landing'
 import Alert from './components/layout/Alert'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import Profiles from './components/profiles/Profiles'
 import PrivateRoute from './components/routing/PrivateRoute'
 // Redux
 import { Provider } from 'react-redux'
@@ -36,6 +37,7 @@ const App = () => {
           <Route path='/' element={<Landing />} />
           <Route path='register' element={<Register />} />
           <Route path='login' element={<Login />} />
+          <Route path='profiles' element={<Profiles />} />
           <Route
             path='dashboard'
             element={<PrivateRoute component={Dashboard} />}

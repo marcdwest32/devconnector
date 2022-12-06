@@ -10,7 +10,7 @@ const ProfileAbout = ({ profile }) => {
   return (
     <div className='profile-about bg-light p-2'>
       {bio && (
-        <div className='container'>
+        <div>
           <h2 className='text-primary'>{name}'s Bio</h2>
           <p>{bio}</p>
           <div className='line'></div>

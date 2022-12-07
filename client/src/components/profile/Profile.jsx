@@ -8,6 +8,7 @@ import ProfileAbout from './ProfileAbout'
 import ProfileTop from './ProfileTop'
 import ProfileExperience from './ProfileExperience'
 import ProfileEducation from './ProfileEducation'
+import ProfileGithub from './ProfileGithub'
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
   const { id } = useParams()
@@ -66,6 +67,9 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
               )}
             </div>
           </div>
+          {profile.githubusername && (
+            <ProfileGithub username={profile.githubusername} />
+          )}
         </div>
       )}
     </div>

@@ -2,5 +2,5 @@
   "mongoURI": "mongodb+srv://mdwest32:12marc34@devconnector.uu4m8.mongodb.net/?retryWrites=true&w=majority",
   "jwtSecret": "mysecrettoken",
   "githubClientId": "d59fa5ea8dd3c06187f1",
-  "githubSecret": "f52fe0a74925fda63c8a95239873239756756163"
+  "githubToken": "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"
 }

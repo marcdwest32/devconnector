@@ -11,7 +11,7 @@ const PostItem = ({ auth, post, addLike, removeLike, deletePost }) => {
   return (
     <div className='post bg-white p-1 my-1'>
       <div>
-        <Link to='/profile'>
+        <Link to={`/profile/${user}`}>
           <img className='round-img' src={avatar} alt='' />
           <h4>{name}</h4>
         </Link>
@@ -19,7 +19,7 @@ const PostItem = ({ auth, post, addLike, removeLike, deletePost }) => {
       <div>
         <p className='my-1'>{text}</p>
         <p className='post-date'>
-          Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>
+          Posted on <Moment format='MM/DD/YYYY'>{date}</Moment>
         </p>
         <button
           type='button'

@@ -1,5 +1,6 @@
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED'
 export const AUTH_ERROR = 'AUTH_ERROR'
+export const ADD_POST = 'ADD_POST'
 export const CLEAR_PROFILE = 'CLEAR_PROFILE'
 export const DELETE_POST = 'DELETE_POST'
 export const GET_PROFILE = 'GET_PROFILE'

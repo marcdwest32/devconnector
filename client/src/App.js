@@ -12,6 +12,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Profiles from './components/profiles/Profiles'
 import Profile from './components/profile/Profile'
+import Posts from './components/posts/Posts'
 import PrivateRoute from './components/routing/PrivateRoute'
 // Redux
 import { Provider } from 'react-redux'
@@ -60,6 +61,7 @@ const App = () => {
             path='add-experience'
             element={<PrivateRoute component={AddExperience} />}
           />
+          <Route path='posts' element={<PrivateRoute component={Posts} />} />
         </Routes>
       </Router>
     </Provider>

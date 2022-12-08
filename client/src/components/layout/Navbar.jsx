@@ -22,6 +22,9 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/profiles'>Developers</Link>
       </li>
+      <li>
+        <Link to='/posts'>Posts</Link>
+      </li>
     </ul>
   )
   const guestLinks = (
